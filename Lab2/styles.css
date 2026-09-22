@@ -6,9 +6,9 @@ footer{
     text-align: center;
     padding: 2px;
 }
-footer a {
+footer a{
     color: white;
 }
-footer a:hover {
+footer a:hover{
     color: blue;
 }
