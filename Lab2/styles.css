@@ -1,14 +1,14 @@
-footer{
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 2px;
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 2px;
 }
 
-footer a{
-    color: white;
+footer a {
+  color: white;
 }
 
-footer a:hover{
-    color: blue;
+footer a:hover {
+  color: blue;
 }
