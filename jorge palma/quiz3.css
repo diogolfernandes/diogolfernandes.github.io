@@ -4,14 +4,8 @@
   box-sizing: border-box;
 }
 
-header {grid-area: h;}
-main {grid-area: m;}
-aside {grid-area: a;}
-footer {grid-area: f;}
-
 body {
     display: grid;
-
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 50px auto 30px;
     grid-template-areas:
@@ -24,6 +18,7 @@ body {
 }
 
 header {
+    grid-area: h;
     background-color: grey;
     display: flex;
     align-items: center;
@@ -32,6 +27,7 @@ header {
 }
 
 main {
+    grid-area: m;
     background-color: red;
     border: 1px solid black;
 }
@@ -46,11 +42,13 @@ main section {
 }
 
 aside {
+    grid-area: a;
     background-color: green;
     border: 1px solid black;
 }
 
 footer {
+    grid-area: f;
     background-color: lightgreen;
     display: flex;
     align-items: center;
