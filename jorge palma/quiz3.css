@@ -5,51 +5,51 @@
 }
 
 body {
-    display: grid;
-    grid-template:
-        "h h" 50px
-        "m a" auto
-        "f f" 30px
-        / 2fr 1fr;
-    border: 1px solid black;
-    min-height: 100vh;
+  display: grid;
+  grid-template:
+    "h h" 50px
+    "m a" auto
+    "f f" 30px
+    / 2fr 1fr;
+  border: 1px solid black;
+  min-height: 100vh;
 }
 
 header {
-    grid-area: h;
-    background-color: grey;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid black;
+  grid-area: h;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
 }
 
 main {
-    grid-area: m;
-    background-color: red;
-    border: 1px solid black;
+  grid-area: m;
+  background-color: red;
+  border: 1px solid black;
 }
 
 main section {
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid black;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
 }
 
 aside {
-    grid-area: a;
-    background-color: green;
-    border: 1px solid black;
+  grid-area: a;
+  background-color: green;
+  border: 1px solid black;
 }
 
 footer {
-    grid-area: f;
-    background-color: lightgreen;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid black;
+  grid-area: f;
+  background-color: lightgreen;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid black;
 }
