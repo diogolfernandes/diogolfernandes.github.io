@@ -6,12 +6,11 @@
 
 body {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 50px auto 30px;
-    grid-template-areas:
-        "h h"
-        "m a"
-        "f f";
+    grid-template:
+        "h h" 50px
+        "m a" auto
+        "f f" 30px
+        / 2fr 1fr;
     border: 1px solid black;
     min-height: 100vh;
 }
