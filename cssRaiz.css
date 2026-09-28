@@ -48,7 +48,7 @@ section {
   padding: 2rem 5%;
 }
 
-#HeroPage {
+#heroPage {
   height: 90vh;
   justify-content: center;
   background: red url("images/cover.jpg") center/cover no-repeat;
