@@ -12,7 +12,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header & Título */
 header {
   background-color: navy;
   color: white;
@@ -30,7 +29,7 @@ header h1 {
 .hamburguer {
   display: none;
   cursor: pointer;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 header nav {
@@ -94,13 +93,8 @@ footer a:hover {
 }
 
 @media (max-width: 500px) {
-  .hamburguer {
-    display: block;
-  }
   header h1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    justify-content: space-between;
   }
   header nav {
     display: none;
@@ -110,5 +104,8 @@ footer a:hover {
   }
   header:hover nav {
     display: flex;
+  }
+  .hamburguer {
+    display: block;
   }
 }
