@@ -12,16 +12,25 @@ body {
   min-height: 100vh;
 }
 
+/* Header & Título */
 header {
   background-color: navy;
   color: white;
-  text-align: center;
 }
 
 header h1 {
   padding: 20px;
   font-size: xx-large;
   font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburguer {
+  display: none;
+  cursor: pointer;
+  font-size: 1.8rem;
 }
 
 header nav {
@@ -31,6 +40,18 @@ header nav {
   align-items: center;
   gap: 25px;
   padding: 10px 0;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+header nav a:hover {
+  opacity: 0.8;
+  font-size: 105%;
 }
 
 main {
@@ -66,19 +87,28 @@ footer a {
   text-decoration: none;
 }
 
-header nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
 footer a:hover {
   opacity: 0.5;
   font-size: 105%;
   text-decoration: underline;
 }
 
-header nav a:hover {
-  opacity: 0.8;
-  font-size: 105%;
+@media (max-width: 500px) {
+  .hamburguer {
+    display: block;
+  }
+  header h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  header nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+  }
+  header:hover nav {
+    display: flex;
+  }
 }
