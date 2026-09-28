@@ -2,45 +2,69 @@
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="cssRaiz.css" />
     <title>Primeira Página</title>
-
-    <style>
-      img {
-        width: 300px;
-      }
-    </style>
   </head>
   <body>
     <header>
-      <h1>Primeira Página web!</h1>
+      <h1>Óbidos</h1>
+      <nav>
+        <ul>
+          <li><a href="#HeroPage">Inicio</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#disciplina">Interfaces Web</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-      <p>Eis a minha primeira página web!</p>
-      <p>
-        Na Unidade Curricular de
-        <a
-          href="https://moodle.ensinolusofona.pt/course/view.php?id=27320"
-          target="_blank"
-        >
-          Desenvolvimento de Interfaces web
-        </a>
-        abordaremos as seguintes tecnologias Web &#127760;:
-      </p>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>React e Next.js</li>
-      </ul>
-      <p>Iremos criar soluções criativas!</p>
-      <nav>
-        <ul>
-          <li>Ir para <a href="Lab1/cidade/index.html">Lab1</a></li>
-          <li>Ir para <a href="Lab2/cidade/index.html">Lab2</a></li>
-        </ul>
-      </nav>
-      <img src="images/diw.svg" alt="Desenvolvimento de Interfaces Web" />
+      <section id="HeroPage"></section>
+      <section id="projetos">
+        <h2>Projetos / Labs</h2>
+        <p>Iremos criar soluções criativas!</p>
+        <div class="cards">
+          <div>
+            <h3><a href="Lab1/cidade/index.html">Lab1</a></h3>
+            <p>Estrutura base e semântica</p>
+          </div>
+
+          <div>
+            <h3><a href="Lab2/cidade/index.html">Lab2</a></h3>
+            <p>Estilos e layout responsivo</p>
+          </div>
+
+          <div>
+            <h3><a href="Lab3/cidade/index.html">Lab3</a></h3>
+            <p>Interatividade com JS</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="disciplina">
+        <h2>Disciplina DIW</h2>
+        <div>
+          <div class="texto">
+            <p>
+              Na Unidade Curricular de
+              <a
+                href="https://moodle.ensinolusofona.pt/course/view.php?id=27320"
+                target="_blank"
+              >
+                Desenvolvimento de Interfaces web
+              </a>
+              abordaremos as seguintes tecnologias Web &#127760;:
+            </p>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React e Next.js</li>
+            </ul>
+          </div>
+
+          <img src="images/diw.svg" alt="Desenvolvimento de Interfaces Web" />
+        </div>
+      </section>
     </main>
 
     <footer>

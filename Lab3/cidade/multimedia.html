@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Cidade</title>
+
+    <style>
+      .fotografias {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .fotografias img {
+        width: 150px;
+        border-radius: 20px;
+      }
+      iframe {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Óbidos</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="local.html">Localização</a>
+        <a href="multimedia.html">Multimédia</a>
+        <a href="info.html">Informação</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Multimédia</h2>
+      <p>Nesta página encontra-se conteúdos multimédia</p>
+      <p>
+        <a href="#fotografias">Fotografias</a>
+        <a href="#video">Video</a>
+        <a href="#poesia">Poesia</a>
+      </p>
+      <section id="fotografias">
+        <h3>Fotografias</h3>
+        <div class="fotografias">
+          <img src="../images/buracoMuralha.jpg" alt="Buraco na muralha" />
+          <img
+            src="../images/casteloDentroTopView.jpg"
+            alt="Top view dentro das muralhas"
+          />
+          <img src="../images/casteloObidos.jpg" alt="castelo de Obidos" />
+          <img src="../images/lagoaBarcos.jpg" alt="bascos na lagoa" />
+          <img src="../images/lagoaDeObidos.jpg" alt="lagoa de Obidos" />
+          <img src="../images/muralhaEmCima.jpg" alt="muralha" />
+          <img src="../images/ruaObidos.jpg" alt="rua" />
+          <img src="../images/senhorDaPedra.jpg" alt="senhor da pedra" />
+        </div>
+      </section>
+      <section id="video">
+        <h3>Vídeo</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Jv0UrBwQmhc?si=iTmpMFB9l06LoXoU"
+          title="YouTube video player"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <section id="poesia">
+        <h3>Poesia</h3>
+        <p>Rota da Poesia:</p>
+        <ul>
+          <li>
+            <p>"Gosto de sentir a natureza e fingir que não lhe pertenço."</p>
+            <p>Excerto do poema "Natureza viva" de Armando Silva Carvalho</p>
+          </li>
+          <li>
+            <p>
+              "Se houvesse degraus na terra e tivesse anéis o céu, eu subiria os
+              degraus e aos anéis me prenderia."
+            </p>
+            <p>
+              Excerto do poema "Se houvesse degraus na terra" de Herberto Hélder
+            </p>
+          </li>
+          <li>
+            <p>
+              "Este céu passará e então teu riso descerá dos montes pelos rios
+              até desaguar no nosso coração."
+            </p>
+            <p>Poema "Este céu passará" de Ruy Belo</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>DIW 2026</p>
+    </footer>
+  </body>
+</html>
