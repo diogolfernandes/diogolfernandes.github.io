@@ -65,13 +65,13 @@ section {
   color: #666;
 }
 
-#heroPage {
+#hero {
   height: 90vh;
   justify-content: center;
   background: red url("images/cover.jpg") center/cover no-repeat;
 }
 
-#heroPage p {
+#hero p {
   color: #000;
   width: 250px;
 }
