@@ -72,7 +72,7 @@ section {
 }
 
 #projetos, #disciplina {
-  min-height: 100vh;
+  min-height: 80vh;
   background: bisque;
   border-radius: 40px;
   margin: 30px;
