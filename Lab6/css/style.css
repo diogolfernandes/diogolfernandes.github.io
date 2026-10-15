@@ -1,0 +1,21 @@
+main {
+  background-color: yellow;
+  margin: 10px;
+  padding: 2px;
+  border-radius: 20px
+}
+
+section {
+  background-color: beige;
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 2px;
+  border-radius: 20px
+}
+
+form {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
