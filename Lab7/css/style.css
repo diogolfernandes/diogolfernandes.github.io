@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    list-style: none;
+}
+
+a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+/* Main */
+h4 {
+    display: flex;
+    justify-content: center;
+}
+
+#cesto {
+    background-color: orange;
+}
+
+/* Footer */
+footer {
+    color: black;
+    text-align: center;
+    padding: 15px;
+    font-size: smaller;
+}
