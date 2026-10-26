@@ -27,16 +27,13 @@ function criarProduto(produto) {
 
 // C. Event handlers
 function renderizarProdutos(produtos) {
-  // Limpa o conteúdo atual da div dos produtos
   containerProdutos.innerHTML = "";
 
-  // 2. Na função renderizarProdutos, com o método forEach, percorre cada elemento da lista
   produtos.forEach((produto) => {
-    // Imprime na consola para verificação
+    // para verificação, não ligar
     console.log(produto.title);
     console.log(produto);
 
-    // 4. Cria o elemento <article> e insere dentro do <div> da secção #produtos
     const artigoProduto = criarProduto(produto);
     containerProdutos.append(artigoProduto);
   });
@@ -45,7 +42,6 @@ function renderizarProdutos(produtos) {
 // D. Event Listeners
 
 // E. Inicialização
-
 if (typeof produtos !== "undefined") {
   renderizarProdutos(produtos);
 } else {
