@@ -2,6 +2,7 @@
 const containerProdutos = document.querySelector("#produtos div");
 const containerCesto = document.querySelector("#cesto div");
 const containerCustoTotal = document.querySelector("#cesto span");
+const containerFiltrar = document.querySelector("#filtrar");
 
 // para local storage
 if(!localStorage.getItem('cesto')) {
@@ -12,15 +13,27 @@ if(!localStorage.getItem('custoTotal')) {
 }
 
 // Fetchs
-// lista de produtos
+// Get de produtos
 fetch("https://deisishop.pw.deisi.ulusofona.pt/products")
 .then(Response => Response.json())
-.then(data => {
-  renderizarProdutos(data);
+.then(listaP => {
+  // Lista de produtos
+  renderizarProdutos(listaP);
 })
 
-// filtro categorias
-fetch()
+// Get categorias
+fetch("https://deisishop.pw.deisi.ulusofona.pt/categories")
+.then(Response => Response.json())
+.then(listaC => {
+  // Lista de categorias
+  listarCategorias(listaC);
+})
+
+
+// Z. Funções que não sei para onde vão
+// onChange das categorias
+
+containerFiltrar.addEventListener('change', filtrarPorCategoria);
 
 // B. Funções utilitárias
 function criarProduto(produto) {
@@ -45,6 +58,30 @@ function criarProduto(produto) {
   // Inserir todos os elementos no <article>
   article.append(titulo, imagem, preco, descricao, botao);
   return article;
+}
+
+function criarCesto(produto, index) {
+  const itemCesto = document.createElement("article");
+  const titulo = document.createElement("h3");
+  titulo.textContent = produto.title;
+
+  const imagem = document.createElement("img");
+  imagem.src = produto.image;
+  imagem.alt = produto.title;
+
+  const preco = document.createElement("p");
+  preco.textContent = `Custo total: ${produto.price} €`;
+
+  // Botão para remover do cesto
+  const buttonRemover = document.createElement("button");
+  buttonRemover.textContent = "Remover";
+  buttonRemover.addEventListener("click", () => {
+    removerDoCesto(index);
+  });
+
+  itemCesto.append(titulo, imagem, preco, buttonRemover);
+
+  return itemCesto;
 }
 
 function adicionarCesto(produto) {
@@ -78,10 +115,6 @@ function renderizarProdutos(produtos) {
   containerProdutos.innerHTML = "";
 
   produtos.forEach((produto) => {
-    // para verificação (dont mind me)
-    console.log(produto.title);
-    console.log(produto);
-
     const artigoProduto = criarProduto(produto);
     containerProdutos.append(artigoProduto);
   });
@@ -101,23 +134,7 @@ function renderizarCesto() {
 
   // Criar produtos dentro do cesto
   cesto.forEach((produto, index) => {
-    const itemCesto = document.createElement("article");
-    const titulo = document.createElement("h3");
-      titulo.textContent = produto.title;
-
-    const imagem = document.createElement("img");
-      imagem.src = produto.image;
-      imagem.alt = produto.title;
-
-    const preco = document.createElement("p");
-      preco.textContent = `Custo total: ${produto.price} €`;
-
-    // Botão para remover do cesto
-    const buttonRemover = document.createElement("button");
-    buttonRemover.textContent = "Remover";
-    buttonRemover.addEventListener("click", () => { removerDoCesto(index);});
-
-    itemCesto.append(titulo, imagem, preco, buttonRemover);
+    const itemCesto = criarCesto(produto, index);
     containerCesto.append(itemCesto);
   });
 
@@ -125,13 +142,17 @@ function renderizarCesto() {
   containerCustoTotal.textContent = custoTotal;
 }
 
+function listarCategorias(listaP) {
+  listaP.forEach((categoria) => {
+    const option = document.createElement("option");
+    option.textContent = categoria.name;
+    option.value = categoria.id;
+
+    containerFiltrar.append(option);
+  });
+}
+
 // D. Event Listeners
 
 // E. Inicialização
-if (typeof produtos !== "undefined") {
-  renderizarProdutos(produtos);
-} else {
-  console.error("A lista 'produtos' não foi encontrada.");
-}
-
 renderizarCesto();
