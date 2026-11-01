@@ -53,6 +53,46 @@ nav a:hover {
   opacity: .8;
 }
 
+/* Filtros, ordenação e pesquisa */
+#filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+#filtros section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#filtros p {
+  font-size: .9rem;
+}
+
+#filtros select,
+#filtros input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  color: #333;
+  font-size: .9rem;
+  outline: none;
+  transition: border-color .2s;
+}
+
+#filtros select {
+  cursor: pointer;
+}
+
+#filtros input {
+  width: 180px;
+}
+
 /* Main */
 main {
   background: white;
@@ -224,8 +264,19 @@ footer {
     gap: 20px;
   }
 
-  #produtos > div,
-  #cesto > div {
+  #filtros {
     flex-direction: column;
+    gap: 15px;
+  }
+
+  #filtros section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #filtros select,
+  #filtros input {
+    flex: 1;
+    max-width: 250px;
   }
 }
