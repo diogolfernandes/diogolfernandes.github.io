@@ -4,6 +4,7 @@ const containerCesto = document.querySelector("#cesto div");
 const containerCustoTotal = document.querySelector("#cesto span");
 const containerFiltrar = document.querySelector("#filtrar");
 const containerOrdenar = document.querySelector("#ordenar");
+const containerProcurar = document.querySelector("#procurar");
 
 let listaProdutos = [];
 let listaCategorias = [];
@@ -11,9 +12,6 @@ let listaCategorias = [];
 // para local storage
 if(!localStorage.getItem('cesto')) {
   localStorage.setItem('cesto', JSON.stringify([]));
-}
-if(!localStorage.getItem('custoTotal')) {
-  localStorage.setItem('custoTotal', 0);
 }
 
 // Fetchs
@@ -60,10 +58,11 @@ function criarProduto(produto) {
   return article;
 }
 
-// filtrar e ordenar produtos
+// filtrar, ordenar e procurar produtos
 function atualizarProdutos() {
   const categoria = containerFiltrar.value;
   const ordem = containerOrdenar.value;
+  const pesquisa = containerProcurar.value.toLowerCase();
 
   let listaP = [...listaProdutos];
 
@@ -80,6 +79,13 @@ function atualizarProdutos() {
     listaP.sort((a, b) => a.price - b.price);
   }
 
+  // Procurar
+  if (pesquisa !== "") {
+    listaP = listaP.filter(produto =>
+      produto.title.toLowerCase().includes(pesquisa)
+    );
+  }
+
   renderizarProdutos(listaP);
 }
 
@@ -94,7 +100,7 @@ function criarCesto(produto, index) {
   imagem.alt = produto.title;
 
   const preco = document.createElement("p");
-  preco.textContent = `Custo total: ${produto.price} €`;
+  preco.textContent = `Custo total: ${Number(produto.price)} €`;
 
   // Botão para remover do cesto
   const buttonRemover = document.createElement("button");
@@ -110,25 +116,17 @@ function criarCesto(produto, index) {
 
 function adicionarCesto(produto) {
   let cesto = JSON.parse(localStorage.getItem('cesto'));
-  let custoTotal = JSON.parse(localStorage.getItem('custoTotal'));
 
   cesto.push(produto);
-  custoTotal += produto.price;
-
   localStorage.setItem('cesto', JSON.stringify(cesto));
-  localStorage.setItem('custoTotal', custoTotal);
   renderizarCesto();
 }
 
 function removerDoCesto(index) {
   let cesto = JSON.parse(localStorage.getItem('cesto'));
-  let custoTotal = JSON.parse(localStorage.getItem('custoTotal'));
 
-  custoTotal -= cesto[index].price;
   cesto.splice(index, 1);
-
   localStorage.setItem('cesto', JSON.stringify(cesto));
-  localStorage.setItem('custoTotal', custoTotal);
   renderizarCesto();
 }
 
@@ -148,7 +146,6 @@ function renderizarProdutos(produtos) {
 // Cesto
 function renderizarCesto() {
   const cesto = JSON.parse(localStorage.getItem('cesto'));
-  const custoTotal = JSON.parse(localStorage.getItem('custoTotal'));
 
   containerCesto.innerHTML = "";
 
@@ -162,6 +159,11 @@ function renderizarCesto() {
     const itemCesto = criarCesto(produto, index);
     containerCesto.append(itemCesto);
   });
+
+  // Preço
+  const custoTotal = cesto.reduce((total, produto) => {
+    return total + Number(produto.price);
+  }, 0);
 
   containerCustoTotal.textContent = custoTotal;
 }
@@ -180,6 +182,7 @@ function listarCategorias(listaP) {
 // D. Event Listeners
 containerFiltrar.addEventListener('change', atualizarProdutos);
 containerOrdenar.addEventListener('change', atualizarProdutos);
+containerProcurar.addEventListener('input', atualizarProdutos);
 
 // E. Inicialização
 renderizarCesto();
