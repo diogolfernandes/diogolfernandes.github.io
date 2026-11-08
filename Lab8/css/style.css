@@ -221,15 +221,63 @@ main h4 {
   color: white;
 }
 
-/* Custo total */
-#cesto > p {
+/* CheckOut */
+#checkOut {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px orange;
+  padding: 20px 0;
 }
 
-#cesto > p > span{
-  padding: 0 5px;
+#checkOut p {
+  margin: 5px;
+}
+
+#box {
+  appearance: none;
+  border: 1.5px solid #aaa;
+  border-radius: 3px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  vertical-align: auto;
+}
+
+#box:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#box:checked::before {
+  content: "✓";
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#text {
+    height: 16px;
+    padding: 1px 2px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    font-size: 13px;
+}
+
+#checkOut button {
+  color: #5cdd4a;
+  border-color: #5cdd4a;
+}
+
+#checkOut button:hover {
+  background: #5cdd4a;
+  color: white;
 }
 
 /* Cesto vazio */
