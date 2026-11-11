@@ -1,10 +1,17 @@
 // A. Estado e variáveis
+//-produtos e cesto
 const containerProdutos = document.querySelector("#produtos div");
 const containerCesto = document.querySelector("#cesto div");
 const containerCustoTotal = document.querySelector("#cesto span");
+//-filtros
 const containerFiltrar = document.querySelector("#filtrar");
 const containerOrdenar = document.querySelector("#ordenar");
 const containerProcurar = document.querySelector("#procurar");
+//-comprar
+const containerBox = document.querySelector("#box");
+const containerText = document.querySelector("#text");
+const containerComprar = document.querySelector("#comprar");
+const containerInfo = document.querySelector("#infoDeCompra");
 
 let listaProdutos = [];
 let listaCategorias = [];
@@ -130,7 +137,33 @@ function removerDoCesto(index) {
   renderizarCesto();
 }
 
-// Categorias
+// Compras
+function executarCompra() {
+  const cesto = JSON.parse(localStorage.getItem('cesto'));
+
+  fetch("https://deisishop.pw.deisi.ulusofona.pt/buy", {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      "products": cesto.map(produto => produto.id),
+      "student": false,
+      "coupon": "",
+      "name": ""
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    renderizarCompra(data.totalCost, data.reference);
+
+  })
+  .catch(erro => {
+    console.error("Erro na compra:", erro);
+  });
+
+}
+
+// Valor final a pagar (com eventuais descontos): {preço} €
+// Referencia de pagamento: {referencia} €
 
 // C. Event handlers
 // Produtos
@@ -179,10 +212,22 @@ function listarCategorias(listaP) {
   });
 }
 
+// Compras
+function renderizarCompra( custoTotal, referencia) {
+  containerInfo.innerHTML = "";
+
+  const p1 = document.createElement('p');
+  p1.textContent = "Valor final a pagar (com eventuais descontos): "+custoTotal+" €";
+  const p2 = document.createElement('p');
+  p2.textContent = "Referencia de pagamento: "+referencia+" €";
+  containerInfo.append(p1, p2);
+}
+
 // D. Event Listeners
 containerFiltrar.addEventListener('change', atualizarProdutos);
 containerOrdenar.addEventListener('change', atualizarProdutos);
 containerProcurar.addEventListener('input', atualizarProdutos);
+containerComprar.addEventListener('click', executarCompra);
 
 // E. Inicialização
 renderizarCesto();
